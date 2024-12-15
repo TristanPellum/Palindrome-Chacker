@@ -24,3 +24,23 @@ function startPalindromeCheck() {
         continueChecking = confirm("Do you want to check another word?");
     }
 }
+// Get the audio element and the button
+const audio = document.getElementById('labAudio');
+const playButton = document.getElementById('playButton');
+const volumeControl = document.getElementById('volumeControl');
+
+// Play button functionality
+playButton.addEventListener('click', function() {
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = 'Pause Sound';
+  } else {
+    audio.pause();
+    playButton.textContent = 'Play Sound';
+  }
+});
+
+// Adjust volume
+volumeControl.addEventListener('input', function() {
+  audio.volume = volumeControl.value;
+});
